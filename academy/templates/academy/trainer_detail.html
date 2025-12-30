@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>{{trainer.full_name}} Details</title>
+</head>
+<body>
+
+    <div class="container mt-5 text-white d-flex justify-content-center align-items-center">
+        <div>
+            {% if trainer.profile_image %}
+                <div class="d-flex align-items-center justify-content-center">
+                    <img src="{{ trainer.profile_image.url }}" alt="img" width="200">  
+                </div>
+            {% endif %}
+
+            <h3>This is {{ trainer.full_name }}</h3>
+            <hr>
+            <div class="text-center">
+                <h4><strong>Email:</strong> {{ trainer.email }}</h4>
+                <h4><strong>Expertised in:</strong> {{ trainer.expertise }}</h4>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>{{student.full_name}} Details</title>
+</head>
+<body>
+
+    <div class="container mt-5 text-white d-flex justify-content-center align-items-center">
+        <div>
+            <h2 class="text-dark text-center">This is a Student named {{ student.full_name }}</h2>
+            <hr>
+            <div class="text-center">
+                <h4><strong>Email:</strong> {{ student.email }}</h4>
+                <h4><strong>Is Student Active:</strong> {{ student.is_active }}</h4>
+                <h4><strong>{{student.full_name}}</strong> enrolled in the <strong>{{ student.enrolled_course }}</strong> course</h4>
+                <h4><strong>{{student.full_name}}</strong> comes under the control of <strong>Trainer: {{ student.trainer }} </strong></h4>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
