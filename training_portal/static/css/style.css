@@ -1,0 +1,58 @@
+body {
+    font-family: "Inter", sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 20px !important;
+    text-align: center !important;
+    margin-bottom: 20px !important;
+    color: #333 !important;
+}
+
+
+table {
+    margin: auto;
+    border-collapse: collapse;
+    width: 90%;
+    max-width: 900px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background: #4a90e2;
+    color: white;
+}
+
+th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+    background: #f1f1f1;
+}
+
+th {
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+td {
+    color: #555;
+    font-size: 15px;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+.text-center{
+    text-align: center;
+    padding-top: 100px;
+}
