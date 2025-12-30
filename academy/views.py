@@ -6,9 +6,14 @@ from django.contrib import auth
 
 from .forms import TrainerUpdateForm, StudentUpdateForm
 
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 def RegisterView(request):
+    if request.user.is_authenticated:
+        return redirect('home')
+
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         
@@ -25,6 +30,9 @@ def RegisterView(request):
 
 
 def LoginView(request):
+    if request.user.is_authenticated:
+        return redirect('home')
+    
     if request.method == 'POST':
         form = AuthenticationForm(request, request.POST)
         
@@ -40,8 +48,11 @@ def LoginView(request):
     return render(request, 'accounts/login.html', context)
 
 def LogoutView(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
     auth.logout(request)
     return redirect('login')
+
 
 
 def Courses(request):
@@ -52,11 +63,13 @@ def Trainers(request):
     trainers = Trainer.objects.all()
     return render(request, 'academy/trainers.html', {'trainers':trainers})
 
+
 def Students(request):
     students = Student.objects.all()
     return render(request, 'academy/students.html', {'students':students})
 
 
+@login_required
 def Trainer_Detail(request, pk):
     # trainer = Trainer.objects.get(id=pk)
     
@@ -67,6 +80,7 @@ def Trainer_Detail(request, pk):
 
     return render(request, 'academy/trainer_detail.html', context)
 
+@login_required
 def Update_Trainer(request, pk):
 
     trainer = get_object_or_404(Trainer, id=pk)
@@ -89,6 +103,7 @@ def Update_Trainer(request, pk):
 
     return render(request, 'academy/update_trainer.html', context)
 
+@login_required
 def Delete_Trainer(request, pk):
     trainer = get_object_or_404(Trainer, id=pk)
 
@@ -102,6 +117,8 @@ def Delete_Trainer(request, pk):
 
     return render(request, 'academy/delete_trainer.html', context)
 
+
+@login_required
 def Student_Detail(request, pk):
     student = get_object_or_404(Student, id=pk)
     context = {
@@ -109,6 +126,7 @@ def Student_Detail(request, pk):
     }
     return render(request, 'academy/student_detail.html', context)
 
+@login_required
 def Update_Student(request, pk):
     student = get_object_or_404(Student, id=pk)
     student_form = StudentUpdateForm(instance=student)
@@ -128,6 +146,7 @@ def Update_Student(request, pk):
     }
     return render(request, 'academy/update_student.html', context)
 
+@login_required
 def Delete_Student(request, pk):
     student = get_object_or_404(Student, id=pk)
 
