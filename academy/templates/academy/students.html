@@ -42,13 +42,13 @@
                     <td>{{ student.is_active }}</td>
                     <td>
                         <div class="d-flex justify-content-evenly">
-                            {% if perms.academy.Student_Detail %}
+                            {% if perms.academy.view_student %}
                                 <a href="{% url 'student-detail' student.id %}"><i class="fa fa-eye"></i></a>
                             {% endif %}
-                            {% if perms.academy.Update_Student %}
+                            {% if perms.academy.change_student %}
                                 <a href="{% url 'student-update' student.id %}"><i class="fa fa-edit"></i></a>  
                             {% endif %}
-                            {% if perms.academy.Delete_Student %}
+                            {% if perms.academy.delete_student %}
                                 <a href="{% url 'student-delete' student.id %}"><i class="fa fa-trash"></i></a>
                             {% endif %}
                         </div>

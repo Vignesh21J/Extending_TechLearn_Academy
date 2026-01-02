@@ -81,7 +81,7 @@ def Trainer_Detail(request, pk):
     return render(request, 'academy/trainer_detail.html', context)
 
 @login_required
-@permission_required('academy.Update_Trainer', raise_exception=True)
+@permission_required('academy.change_trainer', raise_exception=True)
 def Update_Trainer(request, pk):
 
     trainer = get_object_or_404(Trainer, id=pk)
@@ -105,7 +105,7 @@ def Update_Trainer(request, pk):
     return render(request, 'academy/update_trainer.html', context)
 
 @login_required
-@permission_required('academy.Delete_Trainer', raise_exception=True)
+@permission_required('academy.delete_trainer', raise_exception=True)
 def Delete_Trainer(request, pk):
     trainer = get_object_or_404(Trainer, id=pk)
 
@@ -121,7 +121,7 @@ def Delete_Trainer(request, pk):
 
 
 @login_required
-@permission_required('academy.Student_Detail', raise_exception=True)
+@permission_required('academy.view_student', raise_exception=True)
 def Student_Detail(request, pk):
     student = get_object_or_404(Student, id=pk)
     context = {
@@ -130,7 +130,7 @@ def Student_Detail(request, pk):
     return render(request, 'academy/student_detail.html', context)
 
 @login_required
-@permission_required('academy.Update_Student', raise_exception=True)
+@permission_required('academy.change_student', raise_exception=True)
 def Update_Student(request, pk):
     student = get_object_or_404(Student, id=pk)
     student_form = StudentUpdateForm(instance=student)
@@ -151,7 +151,7 @@ def Update_Student(request, pk):
     return render(request, 'academy/update_student.html', context)
 
 @login_required
-@permission_required('academy.Delete_Student', raise_exception=True)
+@permission_required('academy.delete_student', raise_exception=True)
 def Delete_Student(request, pk):
     student = get_object_or_404(Student, id=pk)
 

@@ -49,10 +49,10 @@
                     <td>
                         <div class="d-flex justify-content-evenly">
                             <a href="{% url 'trainer-detail' trainer.id %}"><i class="fa fa-eye"></i></a>
-                            {% if perms.academy.Update_Trainer %}
+                            {% if perms.academy.change_trainer %}
                                 <a href="{% url 'trainer-update' trainer.id %}"><i class="fa fa-edit"></i></a>  
                             {% endif %}
-                            {% if perms.academy.Delete_Trainer %}
+                            {% if perms.academy.delete_trainer %}
                                 <a href="{% url 'trainer-delete' trainer.id %}"><i class="fa fa-trash"></i></a>
                             {% endif %}
                         </div>
